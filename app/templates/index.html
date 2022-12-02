@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GMS - Google Maps Scraper</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .input {
+        border-radius: 5px;
+        border: 2px solid #dedede;
+        width: 250px;
+        transition: 70ms;
+      }
+
+      .input:focus {
+        outline: none;
+        border: 3px solid #c8ee8a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mt-3 mb-4 text-center">Google Maps Scraper</h2>
+          <form method="POST" style="font-family: monospace">
+            <div class="w-50 mx-auto" style="border: 2px dashed #bababa">
+              <div class="mt-3">
+                <h5 class="mt-4 ms-5 w-75">
+                  1 - tam olarak ne aramak istiyorsun? (tutarlı sonuçlar için
+                  maks. 1 tane kategori)
+                </h5>
+                <input
+                  type="text"
+                  class="ms-5 my-2 input"
+                  autocomplete="off"
+                  name="keyword"
+                  placeholder=" örn: market, petshop"
+                  required
+                />
+                <hr />
+                <h5 class="mt-4 ms-5">
+                  2 - aramayı hangi şehirde yapmak istiyorsun?
+                </h5>
+                <input
+                  type="text"
+                  class="ms-5 my-2 input"
+                  autocomplete="off"
+                  name="city"
+                  placeholder=""
+                  required
+                />
+                <hr />
+                <h5 class="mt-4 ms-5 w-75">
+                  3 - hangi ilçe, mahalle veya muhitte?
+                </h5>
+                <input
+                  type="text"
+                  class="ms-5 my-2 input"
+                  autocomplete="off"
+                  name="district"
+                  placeholder="herhangi biri olur"
+                  required
+                />
+                <hr />
+                <h5 class="mt-4 ms-5 w-75">
+                  4 - kaç adet sonuç görmek istersin?
+                </h5>
+                <input
+                  type="number"
+                  class="ms-5 my-2 input"
+                  autocomplete="off"
+                  name="qtn"
+                  required
+                />
+                <hr />
+                <div class="pb-3 text-center">
+                  <span class="text-danger mx-2">
+                    ortalama 2-3 dakika boyunca süren bir web kazımadan sonra
+                    yaklaşık olarak belirlenen adet kadar işletmenin bilgilerini
+                    JSON formatında alacaksın
+                  </span>
+                  <br />
+                  <br />
+                  {% with messages = get_flashed_messages() %} {% if messages %}
+                  <ul class="flashes" style="list-style: none">
+                    {% for message in messages %}
+                    <li class="text-danger mx-2"><h5>{{ message }}</h5></li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %} {% endwith %}
+                  <button type="submit" class="btn btn-lg btn-primary">
+                    sonuçları getir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
